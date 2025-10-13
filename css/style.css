@@ -4,6 +4,7 @@
   /* root color  */
   :root{
     --blue:#0188df;
+    --gray:#ebebeb;
     --black:#444d53;
     --wight:#fff;
   }
@@ -69,7 +70,7 @@
 
   header{
     width: 96%;
-    background: var(--wight);
+    background: var(--gray);
     position:fixed;
     top: 2rem;
     left: 50%;
@@ -137,6 +138,26 @@
     width: 100%;
     box-shadow: .1rem .3rem rgba(0,0,0,.3);
  }
+
+ header .signin-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+ }
+ 
+ header .register-buttons {
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
+    margin: 0 0.5rem;
+    border: .1rem solid var(--blue);
+    border-radius: .5rem;
+    background: var(--blue);
+    color: var(--wight);
+    cursor: pointer;
+    font-weight: bold;
+ }
+ 
 
 
 
@@ -240,61 +261,7 @@
 
    /* about section end  */
   
-  /* card section start  */
-
-  .card .box-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .card .box-container .box{
-    width: 30rem;
-    margin: 2rem 1rem;
-    overflow: hidden;
-    border-radius: .5rem;
-    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
-  }
-
-  /* card images  */
-  .card .box-container .box img{
-    height: 30rem;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .card .box-container .box .content{
-    padding: 1rem 1.3rem;
-  }
-
-  .card .box-container .box .content h2{
-    font-size: 2rem ;
-    text-align: center;
-    color: var(--black);
-  }
-
-  .card .box-container .box .content h2:hover{
-    color: var(--blue);
-    text-decoration: underline;
-  }
-
-  .card .box-container .box .content p{
-    font-size: 1.7rem;
-    text-align: center;
-    color: var(--black);
-  }
-
-  .card .box-container .box .content .icons{
-    text-align: center;
-  }
   
-  .card .box-container .box .content .icons a{
-    font-size: 2rem;
-    color: var(--blue);
-    text-align: center;
-    margin: 1rem;
-  }
-  /* card section end  */
 
   /* review section start  */
   .review .box-container{

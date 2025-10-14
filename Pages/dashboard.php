@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+
+        if(!isset($_SESSION['user_id'])){
+            header("Location: login.php");
+            exit();
+        }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +16,7 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Welcome to the Dashboard</h1>
+    <h1>Welcome to the Dashboard, <?php echo $_SESSION['username'] ?></h1>
+    <a href="logout.php">Logout</a>
 </body>
 </html>

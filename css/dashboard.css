@@ -1,0 +1,110 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: grid;
+            background-color: lightblue;
+            grid-template-areas: 
+                "header header"
+                "sidebar main";
+                
+  
+            grid-template-columns: 200px 1fr; 
+            grid-template-rows: 41px 1fr; 
+            height: 100vh; 
+            
+        }
+        header {
+            grid-area: header;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 10px;
+            background-color: lightgray;
+            position: fixed;
+        }
+        aside {
+            top: 41px;
+            position: fixed;
+            background-color: gray;
+            width: 200px;
+            height: 100vh;
+        
+
+        }
+        main {
+            grid-area: main;
+            width: 100%;
+            justify-content: center;
+            align-items: center;  
+            background-color: green;
+            padding: 10px;  
+            
+        }
+        section{
+            
+            padding: 20px;
+            color: white;
+            background-color: teal;
+        }
+        section .card-container{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            
+
+
+            
+        }
+        section .card-container .card{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 1px solid white;
+            background-color: darkorange;
+            border-radius: 4px;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            
+        }
+
+        .mood-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+            background-color: lightgreen;
+        }
+        
+        
+        
+        .mood-card-container {
+            display: flex;
+            
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            
+            
+            background-color: lightsalmon;
+        }
+        .mood-card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid white;
+            background-color: darkorange;
+            border-radius: 4px;
+           
+        }

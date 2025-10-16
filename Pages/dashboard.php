@@ -15,6 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/chart-script.js" defer></script>
 </head>
 <body>
     
@@ -47,14 +49,8 @@
 
 
             <div class="mood-container">
-                <h3>Mood Tracker</h3>
-                <div class="mood-box">
-                    <p>Happy</p>
-                    <p>Sad</p>
-                    <p>Excited</p>
-                    <p>Angry</p>
-                    <p>Relaxed</p>
-                </div>
+                <canvas id="moodChart"></canvas>
+                
             </div>
 
 

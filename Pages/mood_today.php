@@ -1,10 +1,52 @@
 <?php 
     session_start();
+    include '../db_connection.php';
 
         if(!isset($_SESSION['user_id'])){
             header("Location: login.php");
             exit();
         }
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $user_id = $_SESSION['user_id'];
+            $mood = $_POST['mood'];
+            $mood_date = date('Y-m-d'); // today's date
+
+    // Mood-value mapping (1–10)
+            $moodValues = [
+                "Happy" => 9,
+                "Sad" => 2,
+                "Angry" => 1,
+                "Calm" => 6,
+                "Tired" => 3,
+                "Excited" => 10,
+                "Anxious" => 4,
+                "Bored" => 5,
+                "Motivated" => 8,
+                "Relaxed" => 7
+            ];
+
+             $mood_value = $moodValues[$mood] ?? 5;
+
+            $sql = "INSERT INTO mood_logs (user_id, mood, mood_value, mood_date) VALUES (?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("isis", $user_id, $mood, $mood_value, $mood_date);
+
+            if ($stmt->execute()) {
+                echo "Mood Submit Successfully";
+                header("Location: mood_today.php");
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+
+            $stmt->close();
+            $conn->close();
+        }
+
+
+
+
 
 ?>
 
@@ -20,35 +62,71 @@
 <body>
     <?php include '../components/header.php';?>
     <?php include '../components/sidebar.php'; ?>
-    <h1>Mood Today</h1>
+    
 
      <main id="home">
         <section>
         <h2>What's your mood today?</h2>
         <div class="mood-card-container">
             <div class="mood-card">
-                <h3>Happy</h3>
+                <h3>Excited 🤩</h3>
             </div>
             <div class="mood-card">
-                <h3>Happy</h3>
+                <h3>Happy 😊</h3>
             </div>
             <div class="mood-card">
-                <h3>Happy</h3>
+                <h3>Motivated 💪</h3>
             </div>
             <div class="mood-card">
-                <h3>Happy</h3>
-            </div><div class="mood-card">
-                <h3>Happy</h3>
+                <h3>Relaxed 🧘</h3>
             </div>
             <div class="mood-card">
-                <h3>Happy</h3>
+                <h3>Calm 😌</h3>
+            </div>
+            <div class="mood-card">
+                <h3>Bored 🥱</h3>
+            </div>
+            <div class="mood-card">
+                <h3>Anxious 😰</h3>
+            </div>
+            <div class="mood-card">
+                <h3>Tired 😴</h3>
+            </div>
+            <div class="mood-card">
+                <h3>Sad 😢</h3>
+            </div>
+            <div class="mood-card">
+                <h3>Angry 😡</h3>
             </div>
             
             
             
         </div>
-        <input type="text">
-        <button>Submit</button>
+
+        <div class="mood-form-container">
+             <form method="POST">
+                 <h2>Hello, <?php echo htmlspecialchars($_SESSION['username']); ?> 👋</h2>
+                    <p>Select your mood today:</p>
+        
+                    <select name="mood" required>
+                        <option value="">-- Select Mood --</option>
+                        <option value="Excited">🤩 Excited</option>
+                        <option value="Happy">😊 Happy</option>
+                        <option value="Motivated">💪 Motivated</option>
+                        <option value="Relaxed">🧘 Relaxed</option>
+                        <option value="Calm">😌 Calm</option>
+                        <option value="Bored">🥱 Bored</option>
+                        <option value="Anxious">😰 Anxious</option>
+                        <option value="Tired">😴 Tired</option>
+                        <option value="Sad">😢 Sad</option>
+                        <option value="Angry">😡 Angry</option>
+                    </select>
+
+                    <button type="submit">Submit Mood</button>
+            </form>
+
+        </div>
+        
         </section>
     </main>
 </body>

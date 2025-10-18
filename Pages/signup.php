@@ -103,29 +103,57 @@
     <div class="auth-container">
         <h2>Create Account</h2>
         <?php 
-            if(isset($_POST['submit'])){
-                $username = $conn->real_escape_string($_POST['username']);
-                $email = $conn->real_escape_string($_POST['email']);
-                $password = $conn->real_escape_string($_POST['password']);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+                $username = trim($_POST['username'] ?? '');
+                $email    = trim($_POST['email'] ?? '');
+                $password = $_POST['password'] ?? '';
 
-                $confirm_password = $conn->real_escape_string($_POST['confirm_password']);
+                $confirm_password = $_POST['confirm_password'] ?? '';
 
-                if($password !== $confirm_password){
-                    echo "Password Not Match";
-                }else{
-                    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-                    $sql = "INSERT INTO users (username,email,password) VALUES ('$username','$email','$hashed_password')";
-                    $result = $conn->query($sql);
-                    if($result === TRUE){
-                        echo "User registered successfully";
-                        header("Location: login.php");
-                        die();
-                    }else{
-                        echo "Failed to create user: " . $conn->error;
+
+
+                if ($username === '' || $email === '' || $password === '' || $confirm_password === '') {
+                    $error = "Please fill all fields.";
+                }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    echo "Invalid email address.";
+                }elseif($confirm_password !== $password){
+                    echo "Password not Match!";
+                }else {
+                    
+                    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
+                    $stmt->bind_param("ss", $username, $email);
+                    $stmt->execute();
+                    $stmt->store_result();
+
+                    if ($stmt->num_rows > 0) {
+                        
+                        $error = "Username or email already taken.";
+                        echo $error;
+                    } else {
+                       
+                        $hashed = password_hash($password, PASSWORD_DEFAULT);
+
+                        $insert = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+                        $insert->bind_param("sss", $username, $email, $hashed);
+
+                        if ($insert->execute()) {
+                            
+                            echo "Account created. You can now login.";
+                            header("Location: login.php");
+                        } else {
+                            
+                            if ($conn->error === 1062) { 
+                                echo "Username or email already taken.";
+                            } else {
+                                echo "Database error: " . $conn->error;
+                            }
+                        }
+                        $insert->close();
                     }
-
+                    $stmt->close();
                 }
-            }
+}
         
         
         
@@ -134,8 +162,8 @@
 
 
         <form method="POST" autocomplete="off">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required autocomplete="username">
+            <label for="username" >Username</label>
+            <input type="text" id="username" name="username" maxlength="8" required autocomplete="username">
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required autocomplete="email">

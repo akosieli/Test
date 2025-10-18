@@ -1,11 +1,17 @@
 <?php 
     session_start();
+    include '../db_connection.php';
 
         if(!isset($_SESSION['user_id'])){
             header("Location: login.php");
             exit();
         }
 
+        $user_id = $_SESSION['user_id'];
+        $stories_count = $conn->query("SELECT COUNT(*) AS total FROM stories WHERE user_id = $user_id")->fetch_assoc()['total'] ?? 0;
+        $mood_count = $conn->query("SELECT COUNT(*) AS total FROM mood_logs WHERE user_id = $user_id")->fetch_assoc()['total'] ?? 0;
+      
+        $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -30,20 +36,24 @@
 
     <main id="home">
         <section >
-            <h2>Welcome this is DASHBOARD</h2>
+            <h2>Dashboard</h2>
                                                     <!-- CARDS -->
             <div class="card-container">
                 <div class="card">
-                    <h1>Shared Story</h1>
-                    <p>10</p>
+                    <h1>Stories</h1>
+                    <span><?php echo $stories_count ?></span>
                 </div>
                 <div class="card">
-                    <h1>Likes</h1>
-                    <p>10</p>
+                    <h1>Mood</h1>
+                    <span><?php echo $mood_count ?></span>
                 </div>
                 <div class="card">
-                    <h1>No idea</h1>
-                    <p>10</p>
+                    <h1>Empty</h1>
+                    <p>0</p>
+                </div>
+                <div class="card">
+                    <h1>Empty</h1>
+                    <p>0</p>
                 </div>
             </div>
 

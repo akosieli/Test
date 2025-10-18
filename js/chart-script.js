@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 datasets: [{
                     label: 'Mood Intensity (1–10)',
                     data: moodValues,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(1, 136, 223, 0.6)',
+                    borderColor: '#444d53',
                     borderWidth: 2,
                     tension: 0.3,
                     fill: true,
@@ -38,10 +38,28 @@ document.addEventListener("DOMContentLoaded", async () => {
                     y: {
                         beginAtZero: true,
                         max: 10,
-                        title: { display: true, text: 'Mood Intensity' }
+                        title: {   
+                            display: true, 
+                            text: 'Mood Intensity',
+                            color: '#0188df',
+                            font: {
+                                size: 20,
+                                family: 'Titan One',
+                                weight: 'lighter'
+                            },
+                        }
                     },
                     x: {
-                        title: { display: true, text: 'Date' }
+                        title: { 
+                            display: true,
+                            text: 'Date',
+                            color: '#0188df',
+                            font: {
+                                size: 20,
+                                family: 'Titan One',
+                                weight: 'lighter'
+                            }, 
+                        }
                     }
                 },
                 plugins: {
@@ -52,7 +70,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     },
                     title: {
                         display: true,
-                        text: 'Daily Mood Tracker'
+                        text: 'Daily Mood Tracker',
+                        color: '#0188df',
+                        font: {
+                            size: 20,
+                            family: 'Titan One',
+                            weight: 'lighter'
+                        },
                     }
                 }
             }

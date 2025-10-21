@@ -149,7 +149,44 @@
             font-weight: lighter;
         }
 
-
+        section .mood-form-container{
+            display: flex;
+            background-color: var(--blue);
+            color: var(--wight);
+            margin-top: 10px;
+            border-radius: 10px;
+            
+        }
+        section .mood-form-container form{
+            background-color: var(--blue);
+            color: var(--wight);
+            border-radius: 10px;
+            padding: 10px;
+            
+        }
+        section .mood-form-container form button{
+            
+            background-color: var(--blue);
+            border: solid 2px var(--wight);
+            height: 50px;
+            border-radius: 4px;
+            color: var(--wight);
+            font-size: 1rem;
+            padding: 10px;
+            cursor: pointer;
+        }
+        section .mood-form-container form select{
+            border-radius: 4px;
+            width: 200px;
+            height: 50px;
+            background-color: var(--wight);
+            border: none;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            color: var(--blue);
+            
+        }
 
 
 
@@ -168,13 +205,13 @@
         
         .mood-card-container {
             display: flex;
-            
+            padding: 10px;
             flex-wrap: wrap;
             justify-content: space-evenly;
             align-items: center;
+            border: solid 2px var(--blue);
             
-            
-            background-color: lightsalmon;
+            background-color: var(--wight);
         }
         .mood-card{
             display: flex;
@@ -183,8 +220,12 @@
             align-items: center;
             padding: 10px;
             border: 1px solid white;
-            background-color: darkorange;
+            background-color: var(--blue);
             border-radius: 4px;
+            color: var(--wight);
+            width: 100px;
+            height: 90px;
+            text-align: center;
            
         }
 
@@ -235,4 +276,25 @@
            font-weight: lighter;
            
            
+        }
+
+        div #chat-box {
+            height: 100px;
+            background-color: aqua;
+            padding: 10px;
+
+        }
+
+        section .profile-container{
+            display: flex;
+        }
+        section .profile-container .profile-header{
+            display: flex;
+            background-color: var(--blue);
+            width: 300px;
+            height: 300px;
+        }
+        section .profile-container .profile-header img{
+            width: 200px;
+            height: 200px;
         }

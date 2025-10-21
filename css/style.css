@@ -22,7 +22,9 @@
     font-size: 62.5%;
     overflow-x: hidden;
   }
-
+  body {
+    position: relative;
+  }
  /* button  */
  .button{
     height: 3.5rem;
@@ -439,6 +441,96 @@
     color: var(--black);
   }
   /* bolg section end  */
+
+
+  #chat-box {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 300px;
+    height: 350px;
+    background-color: var(--blue);
+    
+    border-radius: 4px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: solid 2px var(--blue);
+
+  }
+  #chat-box .chat-header{
+    padding: 4px;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--wight);
+
+  }
+
+
+  #chat-box .convo {
+   
+    display: flex;
+    flex-direction: column;
+    background-color: var(--wight);
+    gap: 20px;
+    height: 100%;
+    margin: 10px;
+    border-radius: 6px;
+    justify-content: end;
+    padding: 10px;
+    font-size: 1.2rem;
+   
+
+  }
+  #chat-box .convo p {
+    
+    padding: 10px;
+    background-color: var(--gray);
+    width: auto;
+   
+
+  }
+  #chat-box .convo .message{
+   text-align: end;
+
+    
+   
+
+  }
+  #chat-box .input-message{
+    background-color: var(--blue);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    
+    
+    
+    
+    
+  }
+  #chat-box #user-input{
+    height: 30px;
+    width: 80%;
+    border: none;
+    border-radius: 4px;
+    
+  }
+  #chat-box #send-btn{
+    height: 30px;
+    width: 17%;
+    font-weight: lighter;
+    border-radius: 4px;
+    border: solid 2px var(--wight);
+    background-color: var(--blue);
+    color: var(--wight);
+    cursor: pointer;
+    
+  }
+
+
+
+
 
   /* footer section start  */
  .footer{

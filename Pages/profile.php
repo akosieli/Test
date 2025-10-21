@@ -38,10 +38,7 @@
     <h1>Profile page</h1>
 
      <main id="home">
-        <section>
-        <h2>Welcome this is Profile page</h2>
-        <p>This is the main content area beside the sidebar.</p>
-        </section>
+       
         <section>
             <header>
                 <h2>👤 My Profile</h2>
@@ -50,6 +47,7 @@
 
             <div class="profile-container">
                 <div class="profile-header">
+                    <img src="../images/home.png" alt="Profile" width='200'>
                     <h2><?php echo htmlspecialchars($user['username']); ?></h2>
                     
                 </div>

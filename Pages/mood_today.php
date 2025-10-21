@@ -81,7 +81,7 @@
                 <h3>Relaxed 🧘</h3>
             </div>
             <div class="mood-card">
-                <h3>Calm 😌</h3>
+                <h3>Calm  <br>😌</h3>
             </div>
             <div class="mood-card">
                 <h3>Bored 🥱</h3>
@@ -90,10 +90,10 @@
                 <h3>Anxious 😰</h3>
             </div>
             <div class="mood-card">
-                <h3>Tired 😴</h3>
+                <h3>Tired <br>😴</h3>
             </div>
             <div class="mood-card">
-                <h3>Sad 😢</h3>
+                <h3>Sad <br>😢</h3>
             </div>
             <div class="mood-card">
                 <h3>Angry 😡</h3>
@@ -105,11 +105,11 @@
 
         <div class="mood-form-container">
              <form method="POST">
-                 <h2>Hello, <?php echo htmlspecialchars($_SESSION['username']); ?> 👋</h2>
+                 <h2 style="margin-bottom: 10px;">Hello, <?php echo htmlspecialchars($_SESSION['username']); ?> 👋</h2>
                     <p>Select your mood today:</p>
         
                     <select name="mood" required>
-                        <option value="">-- Select Mood --</option>
+                        <option value="">Select Mood</option>
                         <option value="Excited">🤩 Excited</option>
                         <option value="Happy">😊 Happy</option>
                         <option value="Motivated">💪 Motivated</option>

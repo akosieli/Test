@@ -10,7 +10,7 @@
 
         $user_id = $_SESSION['user_id'];
 
-        $sql = "SELECT username, email FROM users WHERE id = ?";
+        $sql = "SELECT users.username, users.email, profile.image_path,profile.gender, profile.age FROM users LEFT JOIN profile ON users.id = profile.user_id WHERE users.id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
@@ -48,28 +48,45 @@
 
             <div class="profile-container">
                 <div class="profile-header">
+                    <div class="image">
+
+                    </div>
                     <div class="image-container">
 
-                        <img src="../images/img-3.jpg" alt="Profile" >
+                        <img src="<?php echo htmlspecialchars($user['image_path']); ?>" alt="Profile" >
                     </div>
                     <div class="username-container">
 
                         <p><?php echo htmlspecialchars($user['username']); ?></p>
                     </div>
-                    
                 </div>
+                
 
                 <div class="info">
-                    <p><strong>User ID:</strong> <?php echo $user_id; ?></p>
-                    <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-                    <p><strong>Age:</strong> 21</p>
-                    <p><strong>Gender:</strong> Male</p>
+                    <label for="user">User ID:
+                        <p> <?php echo $user_id; ?></p>
+                    </label>
+                    
+                    <label for="email">Email:
+
+                        <p><?php echo htmlspecialchars($user['email']); ?></p>
+                    </label>
+                    
+                    <label for="age">Age:
+
+                        <p> <?php echo htmlspecialchars($user['age']); ?></p>
+                    </label>
+                    
+                    <label for="gender">Gender:
+
+                        <p> <?php echo htmlspecialchars($user['gender']); ?></p>
+                    </label>
                 </div>
                
 
                 
 
-                <a href="edit_profile.php" class="edit-btn">✏️ Edit Profile</a>
+                <a href="../Pages/profile_edit.php" class="edit-btn">✏️ Edit Profile</a>
             </div>
         </section>
         <?php include '../Components/chat-bot.php'; ?>

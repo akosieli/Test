@@ -49,8 +49,13 @@
             <div class="profile-container">
                 <div class="profile-header">
                     <div class="image-container">
-
-                        <img src="<?php echo htmlspecialchars($user['image_path']); ?>" alt="Profile" >
+                         <?php
+                            // Check if user has an image; otherwise show default
+                            $image_path = !empty($user['image_path']) && file_exists($user['image_path'])
+                                ? $user['image_path']
+                                : '../images/default.jpg';
+                        ?>
+                        <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile" >
                     </div>
                     <div class="username-container">
 
@@ -70,31 +75,27 @@
 
                 <form action="../Components/edit_profile.php" method="POST" >
                         <p><strong>User ID:</strong> <?php echo $user_id; ?></p>
-                        <label for="gender">Username:
+                        <label for="username">Username:
 
                             <input type="text" name="username" value="<?php  echo htmlspecialchars($user['username']); ?>">
                         </label>
                         
-                        <label for="gender">Email:
+                        <label for="email">Email:
 
                             <input type="email" name="email" value="<?php  echo htmlspecialchars($user['email']); ?>">
                         </label>
-                        <label for="gender">Age:
+                        <label for="age">Age:
 
                             <input type="number" name="age" min="13" max="100" value="<?php  echo htmlspecialchars($user['age']); ?>">
                         </label>
                         
-                        <label for="gender">Gender:
-
-                            <input list="genders" name="gender" id="gender" value="<?php echo htmlspecialchars($user['gender']); ?>">
-                        </label>
-
-                            <datalist id="genders">
-                                <option value="Male">
-                                <option value="Female">
-                                <option value="Other">
-                            </datalist>
-
+                            <label for="gender">Gender:</label>
+                            <select name="gender" id="gender" required>
+                                <option value="">--Select Gender--</option>
+                                <option value="Male" <?php if($user['gender'] === 'Male') echo 'selected'; ?>>Male</option>
+                                <option value="Female" <?php if($user['gender'] === 'Female') echo 'selected'; ?>>Female</option>
+                                <option value="Other" <?php if($user['gender'] === 'Other') echo 'selected'; ?>>Other</option>
+                            </select>
 
                         <button type="submit">Submit</button>
                 </form>

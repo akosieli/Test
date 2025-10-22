@@ -52,8 +52,13 @@
 
                     </div>
                     <div class="image-container">
-
-                        <img src="<?php echo htmlspecialchars($user['image_path']); ?>" alt="Profile" >
+                        <?php
+                            // Check if user has an image; otherwise show default
+                            $image_path = !empty($user['image_path']) && file_exists($user['image_path'])
+                                ? $user['image_path']
+                                : '../images/default.jpg';
+                        ?>
+                        <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile" >
                     </div>
                     <div class="username-container">
 

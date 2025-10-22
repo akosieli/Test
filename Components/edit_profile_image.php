@@ -14,7 +14,7 @@ if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === UPL
     $tmp_name  = $_FILES['profile_image']['tmp_name'];
 
     // Create upload folder if it doesn’t exist
-    $upload_dir = "../images/uploads/";
+    $upload_dir = "../images/uploads/".$user_id . "/";
     if (!file_exists($upload_dir)) {
         mkdir($upload_dir, 0777, true);
     }

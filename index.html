@@ -127,14 +127,14 @@
             <!-- start here  -->
             <div class="box">
                 <i class="fas fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, sit quam ab at nulla quae excepturi laboriosam mollitia illo eius?</p>
+                <p>This website truly helped me understand that I’m not alone in what I’m going through. The articles and community posts gave me strength to start healing. Thank you for creating such a safe space for mental health awareness!</p>
 
                 <div class="images">
-                    <img src="./images/img-1.jpg" alt="">
+                    <img src="./images/default.jpg" alt="">
 
                     <div class="info">
-                        <h3>john doe</h3>
-                        <span>date : 11 2024</span>
+                        <h3>Eli Jang</h3>
+                        <span>Oct. 23, 2025</span>
                     </div>
                 </div>
             </div>
@@ -144,14 +144,14 @@
             <!-- start here  -->
             <div class="box">
                 <i class="fas fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, sit quam ab at nulla quae excepturi laboriosam mollitia illo eius?</p>
+                <p>I love how easy it is to use this site. The tips are practical, and reading others’ stories made me feel seen. It’s comforting to know there’s a place that genuinely cares about people’s well-being.</p>
 
                 <div class="images">
-                    <img src="./images/img-2.jpg" alt="">
+                    <img src="./images/default.jpg" alt="">
 
                     <div class="info">
-                        <h3>john doe</h3>
-                        <span>date : 11 2024</span>
+                        <h3>Ong Bak</h3>
+                        <span>Oct. 22, 2025</span>
                     </div>
                 </div>
             </div>
@@ -161,14 +161,14 @@
             <!-- start here  -->
             <div class="box">
                 <i class="fas fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, sit quam ab at nulla quae excepturi laboriosam mollitia illo eius?</p>
+                <p>At first, I didn’t know where to start with my mental health journey, but this website guided me step by step. The mood tracker and daily reflections really made a difference in how I handle stress.</p>
 
                 <div class="images">
-                    <img src="./images/img-3.jpg" alt="">
+                    <img src="./images/default.jpg" alt="">
 
                     <div class="info">
-                        <h3>john doe</h3>
-                        <span>date : 11 2024</span>
+                        <h3>Naruto</h3>
+                        <span>Oct. 20, 2025</span>
                     </div>
                 </div>
             </div>
@@ -191,22 +191,23 @@
                 <img src="./images/form.png" alt="">
             </div>
 
-            <div class="form-container">    
+            <form class="form-container" action="./Components/contact.php" method="POST">    
                 <label for="Full Name">Full Name: </label>
-                <input type="text" name="" id="">
+                <input type="text" name="fullname" id="" required>
 
                 <label for="Email">Email Adress: </label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
 
                 <label for="Phone Number">Phone Number: </label>
-                <input type="number"  name="number" id="number" maxlength="11" >
+                <input type="text"  name="phonenumber" id="number" maxlength="11"  required>
                 
                 <label for="Message">Message: </label>
-                <textarea name="" cols="30" rows="10" id=""></textarea>
+                <textarea name="message" cols="30" rows="10" id="" required></textarea >
                 
-                <input type="submit" value="Submit">
+                <input type="submit" name="submit" id="submitBtn" >
                 
-            </div>
+                
+            </form>
         </div>
 
 

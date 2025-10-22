@@ -57,6 +57,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/chatbot.css" />
+    <script src="../js/chat.js" defer></script>
+    <title>Mood</title>
     <title>Mood</title>
 </head>
 <body>
@@ -65,29 +68,30 @@
     
 
      <main id="home">
+        <?php include '../Components/chat-bot.php'; ?>
         <section>
         <h2>What's your mood today?</h2>
         <div class="mood-card-container">
             <div class="mood-card">
-                <h3>Excited 🤩</h3>
+                <h3>Excited <br>🤩</h3>
             </div>
             <div class="mood-card">
-                <h3>Happy 😊</h3>
+                <h3>Happy <br>😊</h3>
             </div>
             <div class="mood-card">
-                <h3>Motivated 💪</h3>
+                <h3>Motivated <br>💪</h3>
             </div>
             <div class="mood-card">
-                <h3>Relaxed 🧘</h3>
+                <h3>Relaxed <br>🧘</h3>
             </div>
             <div class="mood-card">
                 <h3>Calm  <br>😌</h3>
             </div>
             <div class="mood-card">
-                <h3>Bored 🥱</h3>
+                <h3>Bored <br>🥱</h3>
             </div>
             <div class="mood-card">
-                <h3>Anxious 😰</h3>
+                <h3>Anxious <br>😰</h3>
             </div>
             <div class="mood-card">
                 <h3>Tired <br>😴</h3>
@@ -96,7 +100,7 @@
                 <h3>Sad <br>😢</h3>
             </div>
             <div class="mood-card">
-                <h3>Angry 😡</h3>
+                <h3>Angry <br>😡</h3>
             </div>
             
             

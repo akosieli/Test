@@ -22,9 +22,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/chatbot.css" />
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/chart-script.js" defer></script>
+    <script src="../js/chat.js" defer></script>
 </head>
 <body>
     
@@ -32,12 +34,12 @@
     <?php include '../Components/header.php'; ?>
     <?php include '../Components/sidebar.php'; ?>
     
-
     
 
   
 
     <main id="home">
+        <?php include '../Components/chat-bot.php'; ?>
         <section >
             <h2>Dashboard</h2>
                                                     <!-- CARDS -->

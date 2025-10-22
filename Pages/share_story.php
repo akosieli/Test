@@ -30,9 +30,9 @@
             echo "Error: " . $stmt->error;
         }
 
-    $stmt->close();
+        $stmt->close();
     
-}
+        }
 
 
     $sql = "SELECT stories.story, stories.created_at, users.username 
@@ -56,6 +56,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/chatbot.css" />
+    <script src="../js/chat.js" defer></script>
     <title>Story</title>
 </head>
 <body>
@@ -64,6 +66,7 @@
     
 
      <main id="home">
+        <?php include '../Components/chat-bot.php'; ?>
         <section>
             <div class="feed-container">
 

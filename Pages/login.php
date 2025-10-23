@@ -67,7 +67,7 @@
             border: none;
             border-radius: 0.7rem;
             font-size: 1.7rem;
-            font-weight: 600;
+            font-weight: lighter;
             cursor: pointer;
             margin-top: 1.2rem;
             box-shadow: 0 2px 8px rgba(1,136,223,0.08);

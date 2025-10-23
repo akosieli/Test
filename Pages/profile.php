@@ -91,7 +91,7 @@
 
                 
 
-                <a href="../Pages/profile_edit.php" class="edit-btn">✏️ Edit Profile</a>
+                <a href="../Pages/profile_edit.php" class="edit-btn" style="margin-top: 10px; background-color: var(--blue); color: var(--wight);  border: solid 2px var(--blue); border-radius: 4px; height: 30px; width: 180px;">✏️ Edit Profile</a>
             </div>
         </section>
         <?php include '../Components/chat-bot.php'; ?>

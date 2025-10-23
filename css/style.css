@@ -545,11 +545,11 @@
  .footer .box{
   width: 30rem;
   margin: 2rem;
-  text-align: center;
+  
  }
 
  .footer .box:nth-child(1){
-  text-align: left;
+  text-align: center;
  }
 
 /* logo  */

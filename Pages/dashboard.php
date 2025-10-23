@@ -30,7 +30,7 @@
 </head>
 <body>
     
-    
+   
     <?php include '../Components/header.php'; ?>
     <?php include '../Components/sidebar.php'; ?>
     

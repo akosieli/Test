@@ -10,6 +10,7 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
+        
         body {
             background: var(--gray);
             min-height: 100vh;
@@ -70,7 +71,7 @@
             border: none;
             border-radius: 0.7rem;
             font-size: 1.7rem;
-            font-weight: 600;
+            font-weight: lighter;
             cursor: pointer;
             margin-top: 1.2rem;
             box-shadow: 0 2px 8px rgba(1,136,223,0.08);
@@ -173,6 +174,9 @@
 
             <label for="confirm_password">Confirm Password</label>
             <input type="password" id="confirm_password" name="confirm_password" required autocomplete="new-password">
+            <p style="font-size: 15px;">Note: For your security, please use a unique account for this site.
+                Do not use login details from your school, work, or other websites.
+                We recommend creating a new password that you don’t use anywhere else.</p>
 
             <button type="submit" class="button" name="submit">Sign Up</button>
         </form>

@@ -63,6 +63,9 @@ $chat_history = $history_stmt->get_result();
 
         <div class="chat-container" id="chat-container">
             <div class="response">
+                    <p ><strong>🤖:</strong>This is an AI Chatbot and not a real person. This Chatbot should not be a replacement for professional advice.</p>
+                </div>
+            <div class="response">
                     <strong>🤖:</strong> Hi there, How can I help you?
                 </div>
             <?php while ($row = $chat_history->fetch_assoc()): ?>
